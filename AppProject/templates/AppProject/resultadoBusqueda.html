@@ -1,0 +1,39 @@
+{% extends 'AppProject/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+Resultado
+
+{% endblock %}
+
+{%block ingreso %}
+
+Resultado de la búsqueda
+
+{% endblock %}
+
+{% block formulario %}
+
+{% if exito == True %}
+
+{% for empleado in objetivos %}
+
+<p class="page-section-heading text-center text-uppercase text-secondary my-4">Empleado {{empleado.nombre}} {{empleado.apellido}}</p>
+<br>
+<p class="page-section-heading text-center text-uppercase text-secondary my-4">Tiene {{empleado.edad}} años. Es de {{empleado.pais}}</p>
+<br>
+<p class="page-section-heading text-center text-uppercase text-secondary my-4">Ejerce como {{empleado.cargo}} y cobra ${{empleado.tarifa}}.</p>
+<br>
+<p class="page-section-heading text-center text-uppercase text-secondary my-4">— x — x — x — x — x — x — x — x — x —</p>
+
+{% endfor %}
+
+{% else %}
+
+<p class="page-section-heading text-center text-uppercase text-secondary my-4">Ningún empleado concuerda con la búsqueda.</p>
+
+{% endif %}
+
+{% endblock %}

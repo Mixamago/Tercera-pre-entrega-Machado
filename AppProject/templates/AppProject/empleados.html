@@ -1,9 +1,58 @@
-{% extends 'AppProject/padre.html'}
+{% extends 'AppProject/padre.html' %}
 
 {% load static %}
 
 {% block titulo %}
 
-Prueba
+Empleados
 
 {% endblock %}
+
+{%block ingreso %}
+
+Ingresar nuevo empleado
+
+{% endblock %}
+
+{% block formulario %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-xl-7">
+        <form method="POST"> {% csrf_token %}
+            <div class="form-floating mb-3">
+                <input class="form-control" id="name" type="text" placeholder="Ingrese el primer nombre." data-sb-validations="required" name="nombre"/>
+                <label for="name">Nombre:</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">Campo obligatorio.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="lastname" type="text" placeholder="Ingrese el primer apellido." data-sb-validations="required" name="apellido" />
+                <label for="lastname">Apellido:</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">Campo obligatorio.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="age" type="number" placeholder="Ingrese la edad." data-sb-validations="required" name="edad" />
+                <label for="age">Edad:</label>
+                <div class="invalid-feedback" data-sb-feedback="email:required">Campo obligatorio.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="country" type="text" placeholder="País de residencia." data-sb-validations="required" name="pais" />
+                <label for="country">País:</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">Campo obligatorio.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="job" type="text" placeholder="Cargo que ejerce." data-sb-validations="required" name="cargo" />
+                <label for="job">Cargo:</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">Campo obligatorio.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="money" type="number" placeholder="Tarifa por trabajo." data-sb-validations="required" name="tarifa" />
+                <label for="money">Tarifa:</label>
+                <div class="invalid-feedback" data-sb-feedback="email:required">Campo obligatorio.</div>
+            </div>
+            <button class="btn btn-primary btn-xl" id="submitButton" type="submit" value="enviar">Crear</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
